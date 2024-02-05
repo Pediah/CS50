@@ -64,3 +64,14 @@ window.addEventListener('load', startAutoPlay);
 // Stop auto-play when the user interacts with the slider
 document.getElementById('image-slider-section').addEventListener('mouseover', stopAutoPlay);
 document.getElementById('image-slider-section').addEventListener('mouseout', startAutoPlay);
+    let currentlyPlaying = null;
+
+    function handleVideoClick(videoId) {
+        const video = document.getElementById(videoId);
+
+        if (currentlyPlaying && currentlyPlaying !== video) {
+            currentlyPlaying.pause();
+        }
+
+        currentlyPlaying = video;
+    }
